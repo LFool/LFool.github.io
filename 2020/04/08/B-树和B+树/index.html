@@ -17,7 +17,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>git上传命令 | LFool</title>
+	<title>B-树 && B+树 | LFool</title>
 
 	<meta name="HandheldFriendly" content="True">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -45,14 +45,14 @@
 
 	<meta property="og:site_name" content="LFool">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="git上传命令 | LFool">
+	<meta property="og:title" content="B-树 && B+树 | LFool">
 	<meta property="og:description" content>
-	<meta property="og:url" content="http://yoursite.com/2019/04/16/git上传命令/">
+	<meta property="og:url" content="http://yoursite.com/2020/04/08/B-树和B+树/">
 
 	
-	<meta property="article:published_time" content="2019-04-16T20:04:00+08:00"> 
+	<meta property="article:published_time" content="2020-04-08T01:04:00+08:00"> 
 	<meta property="article:author" content="LF">
-	<meta property="article:published_first" content="LFool, /2019/04/16/git上传命令/"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+	<meta property="article:published_first" content="LFool, /2020/04/08/B-树和B+树/"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 	
 </head>
 <body class="post-template">
@@ -133,17 +133,17 @@
     <div class="inner">
         <header class="post-full-header">
             <section class="post-full-meta">
-                <time class="post-full-meta-date" datetime="2019-04-16T12:53:26.000Z" itemprop="datePublished">
-                    2019-04-16
+                <time class="post-full-meta-date" datetime="2020-04-07T17:39:22.000Z" itemprop="datePublished">
+                    2020-04-8
                 </time>
                 
                 <span class="date-divider">/</span>
                 
-                <a href="/categories/git/">git</a>&nbsp;&nbsp;
+                <a href="/categories/面试/">面试</a>&nbsp;&nbsp;
                 
                 
             </section>
-            <h1 class="post-full-title">git上传命令</h1>
+            <h1 class="post-full-title">B-树 && B+树</h1>
         </header>
         <article class="post-full ">
             
@@ -152,20 +152,104 @@
             
             <section class="post-full-content">
                 <div id="lightgallery" class="markdown-body">
-                    <hr>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch README.md</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;first commit&quot;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://git.ctguqmx.com/LFool/JavaWeb.git</span><br></pre></td></tr></table></figure>
-<p>如果提示：<strong>The requested URL returned error: 403问题</strong><br>
-则使用下面命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://LFool@git.ctguqmx.com/LFool/JavaWeb.git</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+                    <h1 id="头疼的b树以及强大的作用"><a class="markdownIt-Anchor" href="#头疼的b树以及强大的作用"></a> 头疼的B树以及强大的作用</h1>
+<h2 id="b-树"><a class="markdownIt-Anchor" href="#b-树"></a> B-树</h2>
+<p>tip: B-树非B减树，而就是B树</p>
+<p>B树是一种多路平衡查找树，它的每一个节点最多包含k个孩子，k为B树的阶。K取决于磁盘页的大小</p>
 <hr>
-<p>提示<strong>remote origin already exists</strong>先删除远程 Git 仓</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote rm origin</span><br></pre></td></tr></table></figure>
+<p>一个m阶的B树的特征：</p>
+<ol>
+<li>根结点至少有两个子女</li>
+<li>每个中间节点都包含k-1个元素和k个孩子，其中 m/2 &lt;= k &lt;= m</li>
+<li>每一个叶子节点都包含k-1个元素，其中 m/2 &lt;= k &lt;= m</li>
+<li>所有的叶子结点都位于同一层</li>
+<li>每个节点中的元素从小到大排列，节点当中k-1个元素正好是k个孩子包含的元素的值域分划</li>
+</ol>
+<p><strong>以一个3阶B-树为例</strong></p>
+<p><img alt="640.webp" class="post-img b-lazy" href="http://ww1.sinaimg.cn/large/005HBDIygy1gdlr4mz496j30hs07eglf.jpg" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1gdlr4mz496j30hs07eglf.jpg"></p>
+<p>查询5过程：</p>
+<center>第1次磁盘IO：</center>
+<div align="center"><img class="post-img b-lazy" href="http://ww1.sinaimg.cn/large/005HBDIygy1gdlr6c2x59j30hs07mjr7.jpg" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1gdlr6c2x59j30hs07mjr7.jpg"></div>
+<center>在内存中定位（和9比较）：</center>
+<div align="center"><img class="post-img b-lazy" href="http://ww1.sinaimg.cn/large/005HBDIygy1gdlrg7nd1tj30hs07fweb.jpg" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1gdlrg7nd1tj30hs07fweb.jpg"></div>
+<center>第2次磁盘IO：</center>
+<div align="center"><img class="post-img b-lazy" href="http://ww1.sinaimg.cn/large/005HBDIygy1gdlrck54kbj30hs078glf.jpg" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1gdlrck54kbj30hs078glf.jpg"></div>
+<center>在内存中定位（和2，6比较）：</center>
+<div align="center"><img class="post-img b-lazy" href="http://ww1.sinaimg.cn/large/005HBDIygy1gdlre70t02j30hs07ct8j.jpg" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1gdlre70t02j30hs07ct8j.jpg"></div>
+<center>第3次磁盘IO：</center>
+<div align="center"><img class="post-img b-lazy" href="http://ww1.sinaimg.cn/large/005HBDIygy1gdlrck54kbj30hs078glf.jpg" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1gdlrck54kbj30hs078glf.jpg"></div>
+<center>在内存中定位（和3，5比较）：</center>
+<div align="center"><img class="post-img b-lazy" href="http://ww1.sinaimg.cn/large/005HBDIygy1gdlrb4s9bhj30hs07g0sk.jpg" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1gdlrb4s9bhj30hs07g0sk.jpg"></div>
+<p>虽然看着比较次数比二叉查找树的次数还多，但是进行磁盘IO的次数少了，效率取决于磁盘IO的次数<a href="#reason">click</a></p>
+<p><strong>B-树的作用</strong></p>
+<ul>
+<li>文件系统以及部分数据库索引，如MongoDB</li>
+</ul>
+<h2 id="b树"><a class="markdownIt-Anchor" href="#b树"></a> B+树</h2>
+<p>B+树是基于B-树的一种变体，有着比B-树更高的查询性能</p>
+<p>在B-树的基础上，一个m阶的B+树有新的特征：</p>
+<ol>
+<li>
+<p>有k个子树的中间节点包含有k个元素（B树中是k-1个元素），每个元素不保存数据，只用来索引，所有数据都保存在叶子节点</p>
+</li>
+<li>
+<p>所有的叶子结点中包含了全部元素的信息，及指向含这些元素记录的指针，且叶子结点本身依关键字的大小自小而大顺序链接</p>
+</li>
+<li>
+<p>所有的中间节点元素都同时存在于子节点，在子节点元素中是最大（或最小）元素</p>
+</li>
+</ol>
+<div align="center"><img class="post-img b-lazy" href="http://ww1.sinaimg.cn/large/005HBDIygy1gdlrz7ikgzj30hs0723yc.jpg" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1gdlrz7ikgzj30hs0723yc.jpg"></div>
+<p><strong>卫星数据：索引元素所指向的数据记录</strong></p>
+<ul>
+<li>
+<p>在B-树中，无论是中间节点还是叶子节点都带有卫星数据</p>
+<div align="center"><img class="post-img b-lazy" href="http://ww1.sinaimg.cn/large/005HBDIygy1gdls372f3gj30hs08ma9z.jpg" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1gdls372f3gj30hs08ma9z.jpg"></div>
+</li>
+<li>
+<p>在B+树中，只有叶子节点带有卫星数据，其余中间节点仅仅是索引，没有任何数据关联</p>
+<div align="center"><img class="post-img b-lazy" href="http://ww1.sinaimg.cn/large/005HBDIygy1gdls4jese7j30hs085mx2.jpg" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1gdls4jese7j30hs085mx2.jpg"></div>
+</li>
+</ul>
+<p><strong>优点</strong>：主要体现在查询性能上</p>
+<ul>
+<li>单行查询
+<ul>
+<li>B+树的中间节点没有卫星数据，所以同样大小的磁盘页可以容纳能多的节点元素，在数据量相同的情况下，B+树比B-树更加的“矮胖”，查询时IO次数更少</li>
+<li>B+树更加的稳定，最终肯定在叶子节点匹配到元素；而B-树则可能在中间节点也可能在叶子节点匹配到元素</li>
+</ul>
+</li>
+<li>范围查询
+<ul>
+<li>B-树的范围查询很繁琐，只能通过中序遍历来确定范围</li>
+<li>B+树由于叶子节点有指向下一个结点的指针，所以只需在链表上做遍历确定范围即可</li>
+</ul>
+</li>
+</ul>
+<p><strong>作用</strong></p>
+<ul>
+<li>MySQL数据库的索引用的就是B+树结构</li>
+</ul>
+<h2 id="b树相比于b-树的优点"><a class="markdownIt-Anchor" href="#b树相比于b-树的优点"></a> B+树相比于B-树的优点</h2>
+<ol>
+<li>**IO次数少：**单一节点存储更多的元素，使得查询的IO次数更少</li>
+<li>**查询性能稳定：**所有查询都要查找到叶子节点，查询性能稳定</li>
+<li>**范围查询简便：**所有叶子节点形成有序链表，便于范围查询</li>
+</ol>
+<h2 id="索引"><a class="markdownIt-Anchor" href="#索引"></a> 索引</h2>
+<h3 id="1-数据库索引为什么要使用树结构存储"><a class="markdownIt-Anchor" href="#1-数据库索引为什么要使用树结构存储"></a> 1. 数据库索引为什么要使用树结构存储？</h3>
+<p>输的查询效率高，且有序？？（既然这样，为何不使用二叉查找树来实现？？）</p>
+<p><strong>在选择数据库索引的数据结构时，我们不得不考虑一个很现实的问题：磁盘IO</strong><span id="reason"></span></p>
+<ul>
+<li>数据库的索引是存储在磁盘上的，当索引比较大的时候，可能有几个G甚至更多</li>
+<li>我们在利用索引查询时，不可能把整个索引都加载到内存</li>
+<li>我们可以做的是逐一加载每一个磁盘页，这里的磁盘页对应着索引树的节点。每一个磁盘页对应着一个索引树的节点</li>
+</ul>
+<p><img alt="640.webp" class="post-img b-lazy" href="http://ww1.sinaimg.cn/large/005HBDIygy1gdlqpt5p1tj30hs0e6mx0.jpg" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1gdlqpt5p1tj30hs0e6mx0.jpg"></p>
+<p>在我们每次和树中的结点比较时，都需要进行一次IO操作，将结点内的数据加载到内存中进行比较</p>
+<p>IO和在内存中比较这两个操作相比，在内存中比较的时间可以忽略不计</p>
+<p>所以为了减少磁盘IO的次数，我们需要把原本“瘦高”的树结构变得“矮胖”</p>
+<p>这也是不选择二叉查找树，而选择B-的原因</p>
 
                 </div>
             </section>
@@ -176,14 +260,10 @@
     <div style="height: 4vw;width: 100%"></div>
     <nav id="gobottom" class="pagination">
         
-        <a class="prev-post" title="快速幂" href="/2019/05/06/快速幂/">
-            ← 快速幂
-        </a>
-        
         <span class="prev-next-post">•</span>
         
-        <a class="next-post" title="答辩-web" href="/2019/04/16/dabian/">
-            答辩-web →
+        <a class="next-post" title="Lambda" href="/2020/04/07/Lambda/">
+            Lambda →
         </a>
         
     </nav>
@@ -205,7 +285,7 @@
         </a>
     </div>
     <div class="toc-main">
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#头疼的b树以及强大的作用"><span class="toc-text"> 头疼的B树以及强大的作用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#b-树"><span class="toc-text"> B-树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#b树"><span class="toc-text"> B+树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#b树相比于b-树的优点"><span class="toc-text"> B+树相比于B-树的优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引"><span class="toc-text"> 索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数据库索引为什么要使用树结构存储"><span class="toc-text"> 1. 数据库索引为什么要使用树结构存储？</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
 
@@ -400,7 +480,7 @@
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">git上传命令</div>
+    <div class="floating-header-title">B-树 && B+树</div>
     <progress class="progress" value="0">
         <div class="progress-container">
             <span class="progress-bar"></span>
