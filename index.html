@@ -169,14 +169,13 @@
 								
 								
 								
-								 头疼的B树以及强大的作用
- B-树
-tip: B-树非B减树，而就是B树
-B树是一种多路平衡查找树，它的每一个节点最多包含k个孩子，k为B树的阶。K取决于磁盘页的大小
+								 B-树
+tip: B-树非 B 减树，而就是 B 树
+B 树是一种多路平衡查找树，它的每一个节点最多包含 k 个孩子，k 为 B 树的阶。K 取决于磁盘页的大小
 
-一个m阶的B树的特征：
+ 一个 m 阶的 B 树的特征
 
-根
+
 								...
 							</p>
 						</section>
@@ -202,12 +201,12 @@ B树是一种多路平衡查找树，它的每一个节点最多包含k个孩子
 			
 			<article class="post-card post ">
 				
-				<a class="post-card-image-link" title="Lambda" href="/2020/04/07/Lambda/">
+				<a class="post-card-image-link" title="Java8 新特性 Lambda" href="/2020/04/07/Lambda/">
 					<div class="post-card-image b-lazy" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1g2qs6us2x9j30co0comx4.jpg"></div>
 				</a>
 				
 				<div class="post-card-content">
-					<a class="post-card-content-link" title="Lambda" href="/2020/04/07/Lambda/">
+					<a class="post-card-content-link" title="Java8 新特性 Lambda" href="/2020/04/07/Lambda/">
 						<header class="post-card-header">
 							<span class="post-card-tags">
 								
@@ -219,20 +218,19 @@ B树是一种多路平衡查找树，它的每一个节点最多包含k个孩子
 									2020-04-07
 								</time>
 							</span>
-							<h2 class="post-card-title">Lambda</h2>
+							<h2 class="post-card-title">Java8 新特性 Lambda</h2>
 						</header>
 						<section class="post-card-excerpt">
 							<p>
 								
 								
 								
-								 Java8 新特性 Lambda
- 什么是 Lambda？
+								 什么是 Lambda？
 “Lambda 表达式” 是一个匿名函数
 给一个 Java 变量赋值
 
 但是如果你想把一个代码块赋给一个 Java 变量，怎么做到呢？
-比
+比如，把右边的那块代码，赋给左边的叫做
 								...
 							</p>
 						</section>
@@ -308,12 +306,12 @@ B树是一种多路平衡查找树，它的每一个节点最多包含k个孩子
 			
 			<article class="post-card post ">
 				
-				<a class="post-card-image-link" title="volatile" href="/2020/04/06/volatile/">
+				<a class="post-card-image-link" title="volatile 关键字" href="/2020/04/06/volatile/">
 					<div class="post-card-image b-lazy" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1g2qs6us2x9j30co0comx4.jpg"></div>
 				</a>
 				
 				<div class="post-card-content">
-					<a class="post-card-content-link" title="volatile" href="/2020/04/06/volatile/">
+					<a class="post-card-content-link" title="volatile 关键字" href="/2020/04/06/volatile/">
 						<header class="post-card-header">
 							<span class="post-card-tags">
 								
@@ -325,15 +323,14 @@ B树是一种多路平衡查找树，它的每一个节点最多包含k个孩子
 									2020-04-06
 								</time>
 							</span>
-							<h2 class="post-card-title">volatile</h2>
+							<h2 class="post-card-title">volatile 关键字</h2>
 						</header>
 						<section class="post-card-excerpt">
 							<p>
 								
 								
 								
-								 volatile 关键字
- 两个特点
+								 两个特点
 
 保证了不同线程对该变量操作的内存立即可见
 禁止指令重排序
@@ -345,7 +342,7 @@ JMM 规定：
 所有变量都存在主内存中（相当于普通内存）
 
 
-每个线程又有自己
+每个线程又有自己的工作内存（相当于 CPU 
 								...
 							</p>
 						</section>
@@ -371,12 +368,12 @@ JMM 规定：
 			
 			<article class="post-card post ">
 				
-				<a class="post-card-image-link" title="JVM" href="/2020/03/31/JVM/">
+				<a class="post-card-image-link" title="JVM 架构和 GC 垃圾回收机制" href="/2020/03/31/JVM/">
 					<div class="post-card-image b-lazy" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1g2qs6us2x9j30co0comx4.jpg"></div>
 				</a>
 				
 				<div class="post-card-content">
-					<a class="post-card-content-link" title="JVM" href="/2020/03/31/JVM/">
+					<a class="post-card-content-link" title="JVM 架构和 GC 垃圾回收机制" href="/2020/03/31/JVM/">
 						<header class="post-card-header">
 							<span class="post-card-tags">
 								
@@ -388,19 +385,20 @@ JMM 规定：
 									2020-03-31
 								</time>
 							</span>
-							<h2 class="post-card-title">JVM</h2>
+							<h2 class="post-card-title">JVM 架构和 GC 垃圾回收机制</h2>
 						</header>
 						<section class="post-card-excerpt">
 							<p>
 								
 								
 								
-								 JVM 架构和 GC 垃圾回收机制
- JVM 架构图
+								 JVM 架构图
 
  JVM 分为三个主要的子系统
  1. 类加载器子系统
-Java 动态类加载是由类加载器子系统完成的，当它在运行时（非编译时）首次引用一个类时
+Java 动态类加载是由类加载器子系统完成的，当它在运行时（非编译时）首次引用一个类时，会加载，连接，初始化这个类。
+
+类的
 								...
 							</p>
 						</section>
@@ -426,12 +424,12 @@ Java 动态类加载是由类加载器子系统完成的，当它在运行时（
 			
 			<article class="post-card post ">
 				
-				<a class="post-card-image-link" title="aliyun笔试" href="/2020/03/31/aliyun笔试/">
+				<a class="post-card-image-link" title="阿里云笔试（2020-3-31）" href="/2020/03/31/aliyun笔试/">
 					<div class="post-card-image b-lazy" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1g2qs6us2x9j30co0comx4.jpg"></div>
 				</a>
 				
 				<div class="post-card-content">
-					<a class="post-card-content-link" title="aliyun笔试" href="/2020/03/31/aliyun笔试/">
+					<a class="post-card-content-link" title="阿里云笔试（2020-3-31）" href="/2020/03/31/aliyun笔试/">
 						<header class="post-card-header">
 							<span class="post-card-tags">
 								
@@ -443,16 +441,16 @@ Java 动态类加载是由类加载器子系统完成的，当它在运行时（
 									2020-03-31
 								</time>
 							</span>
-							<h2 class="post-card-title">aliyun笔试</h2>
+							<h2 class="post-card-title">阿里云笔试（2020-3-31）</h2>
 						</header>
 						<section class="post-card-excerpt">
 							<p>
 								
 								
 								
-								 阿里云笔试（2020-3-31）（更新中…）
+								 更新中…
  第一题
-1234567/* * n个农场，每个农场有 a[i] 只小鸡 * 每天每个农场均会增长 k 只小鸡 * 农场的主人在每天结束后都会卖掉一半有
+1234567/* * n个农场，每个农场有 a[i] 只小鸡 * 每天每个农场均会增长 k 只小鸡 * 农场的主人在每天结束后都会卖掉一半有最多小鸡的农场的小鸡 * 问 m 天
 								...
 							</p>
 						</section>
@@ -580,12 +578,12 @@ Java 动态类加载是由类加载器子系统完成的，当它在运行时（
 			
 			<article class="post-card post ">
 				
-				<a class="post-card-image-link" title="MySql-5.7.x安装" href="/2019/05/11/MySql-5-7-x安装/">
+				<a class="post-card-image-link" title="MySql-5.7.x安装教程" href="/2019/05/11/MySql-5-7-x安装/">
 					<div class="post-card-image b-lazy" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1g2qs6us2x9j30co0comx4.jpg"></div>
 				</a>
 				
 				<div class="post-card-content">
-					<a class="post-card-content-link" title="MySql-5.7.x安装" href="/2019/05/11/MySql-5-7-x安装/">
+					<a class="post-card-content-link" title="MySql-5.7.x安装教程" href="/2019/05/11/MySql-5-7-x安装/">
 						<header class="post-card-header">
 							<span class="post-card-tags">
 								
@@ -595,20 +593,20 @@ Java 动态类加载是由类加载器子系统完成的，当它在运行时（
 									2019-05-11
 								</time>
 							</span>
-							<h2 class="post-card-title">MySql-5.7.x安装</h2>
+							<h2 class="post-card-title">MySql-5.7.x安装教程</h2>
 						</header>
 						<section class="post-card-excerpt">
 							<p>
 								
 								
 								
-								 MySQL安装教程（压缩包安装）
- 1. 下载
+								 1. 下载
 下载压缩包，并解压
  2. 配系统环境
 感觉没啥用，可是找的别人的教程配了
 直接把解压路径的bin目录加到系统的Path中去
- 3. 添加my.ini
+ 3. 添加my.ini文件
+在解压目录下建一个my.ini
 								...
 							</p>
 						</section>
@@ -656,8 +654,7 @@ Java 动态类加载是由类加载器子系统完成的，当它在运行时（
 								
 								
 								
-								 dijkstra+优先队列
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647
+								1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545
 								...
 							</p>
 						</section>
@@ -730,7 +727,7 @@ Java 动态类加载是由类加载器子系统完成的，当它在运行时（
       
       
       <li>
-        <a href="/2020/04/07/Lambda/">Lambda</a>
+        <a href="/2020/04/07/Lambda/">Java8 新特性 Lambda</a>
       </li>
       
       

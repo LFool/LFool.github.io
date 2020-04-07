@@ -17,7 +17,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>JVM | LFool</title>
+	<title>JVM 架构和 GC 垃圾回收机制 | LFool</title>
 
 	<meta name="HandheldFriendly" content="True">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -45,7 +45,7 @@
 
 	<meta property="og:site_name" content="LFool">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="JVM | LFool">
+	<meta property="og:title" content="JVM 架构和 GC 垃圾回收机制 | LFool">
 	<meta property="og:description" content>
 	<meta property="og:url" content="http://yoursite.com/2020/03/31/JVM/">
 
@@ -143,7 +143,7 @@
                 
                 
             </section>
-            <h1 class="post-full-title">JVM</h1>
+            <h1 class="post-full-title">JVM 架构和 GC 垃圾回收机制</h1>
         </header>
         <article class="post-full ">
             
@@ -152,8 +152,7 @@
             
             <section class="post-full-content">
                 <div id="lightgallery" class="markdown-body">
-                    <h2 id="jvm-架构和-gc-垃圾回收机制"><a class="markdownIt-Anchor" href="#jvm-架构和-gc-垃圾回收机制"></a> JVM 架构和 GC 垃圾回收机制</h2>
-<h3 id="jvm-架构图"><a class="markdownIt-Anchor" href="#jvm-架构图"></a> JVM 架构图</h3>
+                    <h3 id="jvm-架构图"><a class="markdownIt-Anchor" href="#jvm-架构图"></a> JVM 架构图</h3>
 <p><img alt="20170610165140237.png" class="post-img b-lazy" href="http://ww1.sinaimg.cn/large/005HBDIygy1gdd2j7ykilj315g14w79v.jpg" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1gdd2j7ykilj315g14w79v.jpg"></p>
 <h3 id="jvm-分为三个主要的子系统"><a class="markdownIt-Anchor" href="#jvm-分为三个主要的子系统"></a> JVM 分为三个主要的子系统</h3>
 <h4 id="1-类加载器子系统"><a class="markdownIt-Anchor" href="#1-类加载器子系统"></a> 1. 类加载器子系统</h4>
@@ -245,14 +244,14 @@ static int a = 10; 此时只是给 a 赋 0 值<br>
     <div style="height: 4vw;width: 100%"></div>
     <nav id="gobottom" class="pagination">
         
-        <a class="prev-post" title="volatile" href="/2020/04/06/volatile/">
-            ← volatile
+        <a class="prev-post" title="volatile 关键字" href="/2020/04/06/volatile/">
+            ← volatile 关键字
         </a>
         
         <span class="prev-next-post">•</span>
         
-        <a class="next-post" title="aliyun笔试" href="/2020/03/31/aliyun笔试/">
-            aliyun笔试 →
+        <a class="next-post" title="阿里云笔试（2020-3-31）" href="/2020/03/31/aliyun笔试/">
+            阿里云笔试（2020-3-31） →
         </a>
         
     </nav>
@@ -274,7 +273,7 @@ static int a = 10; 此时只是给 a 赋 0 值<br>
         </a>
     </div>
     <div class="toc-main">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#jvm-架构和-gc-垃圾回收机制"><span class="toc-text"> JVM 架构和 GC 垃圾回收机制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jvm-架构图"><span class="toc-text"> JVM 架构图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jvm-分为三个主要的子系统"><span class="toc-text"> JVM 分为三个主要的子系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-类加载器子系统"><span class="toc-text"> 1. 类加载器子系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-运行时数据区"><span class="toc-text"> 2. 运行时数据区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-执行引擎"><span class="toc-text"> 3. 执行引擎</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#jvm-架构图"><span class="toc-text"> JVM 架构图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jvm-分为三个主要的子系统"><span class="toc-text"> JVM 分为三个主要的子系统</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-类加载器子系统"><span class="toc-text"> 1. 类加载器子系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-运行时数据区"><span class="toc-text"> 2. 运行时数据区</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-执行引擎"><span class="toc-text"> 3. 执行引擎</span></a></li></ol></li></ol>
     </div>
 </div>
 
@@ -312,7 +311,7 @@ static int a = 10; 此时只是给 a 赋 0 值<br>
       
       
       <li>
-        <a href="/2020/04/07/Lambda/">Lambda</a>
+        <a href="/2020/04/07/Lambda/">Java8 新特性 Lambda</a>
       </li>
       
       
@@ -469,7 +468,7 @@ static int a = 10; 此时只是给 a 赋 0 值<br>
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">JVM</div>
+    <div class="floating-header-title">JVM 架构和 GC 垃圾回收机制</div>
     <progress class="progress" value="0">
         <div class="progress-container">
             <span class="progress-bar"></span>

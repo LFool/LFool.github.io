@@ -152,22 +152,21 @@
             
             <section class="post-full-content">
                 <div id="lightgallery" class="markdown-body">
-                    <h1 id="头疼的b树以及强大的作用"><a class="markdownIt-Anchor" href="#头疼的b树以及强大的作用"></a> 头疼的B树以及强大的作用</h1>
-<h2 id="b-树"><a class="markdownIt-Anchor" href="#b-树"></a> B-树</h2>
-<p>tip: B-树非B减树，而就是B树</p>
-<p>B树是一种多路平衡查找树，它的每一个节点最多包含k个孩子，k为B树的阶。K取决于磁盘页的大小</p>
+                    <h2 id="b-树"><a class="markdownIt-Anchor" href="#b-树"></a> B-树</h2>
+<p>tip: B-树非 B 减树，而就是 B 树</p>
+<p>B 树是一种多路平衡查找树，它的每一个节点最多包含 k 个孩子，k 为 B 树的阶。K 取决于磁盘页的大小</p>
 <hr>
-<p>一个m阶的B树的特征：</p>
+<h3 id="一个-m-阶的-b-树的特征"><a class="markdownIt-Anchor" href="#一个-m-阶的-b-树的特征"></a> 一个 m 阶的 B 树的特征</h3>
 <ol>
 <li>根结点至少有两个子女</li>
-<li>每个中间节点都包含k-1个元素和k个孩子，其中 m/2 &lt;= k &lt;= m</li>
-<li>每一个叶子节点都包含k-1个元素，其中 m/2 &lt;= k &lt;= m</li>
+<li>每个中间节点都包含 k-1 个元素和 k 个孩子，其中 m/2 &lt;= k &lt;= m</li>
+<li>每一个叶子节点都包含 k-1 个元素，其中 m/2 &lt;= k &lt;= m</li>
 <li>所有的叶子结点都位于同一层</li>
-<li>每个节点中的元素从小到大排列，节点当中k-1个元素正好是k个孩子包含的元素的值域分划</li>
+<li>每个节点中的元素从小到大排列，节点当中 k-1 个元素正好是 k 个孩子包含的元素的值域分划</li>
 </ol>
-<p><strong>以一个3阶B-树为例</strong></p>
+<h3 id="以一个-3-阶-b-树为例"><a class="markdownIt-Anchor" href="#以一个-3-阶-b-树为例"></a> 以一个 3 阶 B-树为例</h3>
 <p><img alt="640.webp" class="post-img b-lazy" href="http://ww1.sinaimg.cn/large/005HBDIygy1gdlr4mz496j30hs07eglf.jpg" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1gdlr4mz496j30hs07eglf.jpg"></p>
-<p>查询5过程：</p>
+<p>查询 5 过程：</p>
 <center>第1次磁盘IO：</center>
 <div align="center"><img class="post-img b-lazy" href="http://ww1.sinaimg.cn/large/005HBDIygy1gdlr6c2x59j30hs07mjr7.jpg" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1gdlr6c2x59j30hs07mjr7.jpg"></div>
 <center>在内存中定位（和9比较）：</center>
@@ -180,17 +179,17 @@
 <div align="center"><img class="post-img b-lazy" href="http://ww1.sinaimg.cn/large/005HBDIygy1gdlrck54kbj30hs078glf.jpg" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1gdlrck54kbj30hs078glf.jpg"></div>
 <center>在内存中定位（和3，5比较）：</center>
 <div align="center"><img class="post-img b-lazy" href="http://ww1.sinaimg.cn/large/005HBDIygy1gdlrb4s9bhj30hs07g0sk.jpg" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1gdlrb4s9bhj30hs07g0sk.jpg"></div>
-<p>虽然看着比较次数比二叉查找树的次数还多，但是进行磁盘IO的次数少了，效率取决于磁盘IO的次数<a href="#reason">click</a></p>
-<p><strong>B-树的作用</strong></p>
+<p>虽然看着比较次数比二叉查找树的次数还多，但是进行磁盘 IO 的次数少了，效率取决于磁盘 IO 的次数<a href="#reason">click</a></p>
+<h3 id="b-树的作用"><a class="markdownIt-Anchor" href="#b-树的作用"></a> B-树的作用</h3>
 <ul>
-<li>文件系统以及部分数据库索引，如MongoDB</li>
+<li>文件系统以及部分数据库索引，如 MongoDB</li>
 </ul>
 <h2 id="b树"><a class="markdownIt-Anchor" href="#b树"></a> B+树</h2>
-<p>B+树是基于B-树的一种变体，有着比B-树更高的查询性能</p>
-<p>在B-树的基础上，一个m阶的B+树有新的特征：</p>
+<p>B+树是基于 B-树的一种变体，有着比 B-树更高的查询性能</p>
+<h3 id="在-b-树的基础上一个-m-阶的-b树有新的特征"><a class="markdownIt-Anchor" href="#在-b-树的基础上一个-m-阶的-b树有新的特征"></a> 在 B-树的基础上，一个 m 阶的 B+树有新的特征：</h3>
 <ol>
 <li>
-<p>有k个子树的中间节点包含有k个元素（B树中是k-1个元素），每个元素不保存数据，只用来索引，所有数据都保存在叶子节点</p>
+<p>有 k 个子树的中间节点包含有 k 个元素（B 树中是 k-1 个元素），每个元素不保存数据，只用来索引，所有数据都保存在叶子节点</p>
 </li>
 <li>
 <p>所有的叶子结点中包含了全部元素的信息，及指向含这些元素记录的指针，且叶子结点本身依关键字的大小自小而大顺序链接</p>
@@ -200,23 +199,23 @@
 </li>
 </ol>
 <div align="center"><img class="post-img b-lazy" href="http://ww1.sinaimg.cn/large/005HBDIygy1gdlrz7ikgzj30hs0723yc.jpg" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1gdlrz7ikgzj30hs0723yc.jpg"></div>
-<p><strong>卫星数据：索引元素所指向的数据记录</strong></p>
+<h3 id="卫星数据索引元素所指向的数据记录"><a class="markdownIt-Anchor" href="#卫星数据索引元素所指向的数据记录"></a> 卫星数据：索引元素所指向的数据记录</h3>
 <ul>
 <li>
-<p>在B-树中，无论是中间节点还是叶子节点都带有卫星数据</p>
+<p>在 B-树中，无论是中间节点还是叶子节点都带有卫星数据</p>
 <div align="center"><img class="post-img b-lazy" href="http://ww1.sinaimg.cn/large/005HBDIygy1gdls372f3gj30hs08ma9z.jpg" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1gdls372f3gj30hs08ma9z.jpg"></div>
 </li>
 <li>
-<p>在B+树中，只有叶子节点带有卫星数据，其余中间节点仅仅是索引，没有任何数据关联</p>
+<p>在 B+树中，只有叶子节点带有卫星数据，其余中间节点仅仅是索引，没有任何数据关联</p>
 <div align="center"><img class="post-img b-lazy" href="http://ww1.sinaimg.cn/large/005HBDIygy1gdls4jese7j30hs085mx2.jpg" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1gdls4jese7j30hs085mx2.jpg"></div>
 </li>
 </ul>
-<p><strong>优点</strong>：主要体现在查询性能上</p>
+<h3 id="优点主要体现在查询性能上"><a class="markdownIt-Anchor" href="#优点主要体现在查询性能上"></a> 优点：主要体现在查询性能上</h3>
 <ul>
 <li>单行查询
 <ul>
-<li>B+树的中间节点没有卫星数据，所以同样大小的磁盘页可以容纳能多的节点元素，在数据量相同的情况下，B+树比B-树更加的“矮胖”，查询时IO次数更少</li>
-<li>B+树更加的稳定，最终肯定在叶子节点匹配到元素；而B-树则可能在中间节点也可能在叶子节点匹配到元素</li>
+<li>B+树的中间节点没有卫星数据，所以同样大小的磁盘页可以容纳能多的节点元素，在数据量相同的情况下，B+树比 B-树更加的“矮胖”，查询时 IO 次数更少</li>
+<li>B+树更加的稳定，最终肯定在叶子节点匹配到元素；而 B-树则可能在中间节点也可能在叶子节点匹配到元素</li>
 </ul>
 </li>
 <li>范围查询
@@ -226,30 +225,30 @@
 </ul>
 </li>
 </ul>
-<p><strong>作用</strong></p>
+<h3 id="作用"><a class="markdownIt-Anchor" href="#作用"></a> 作用</h3>
 <ul>
-<li>MySQL数据库的索引用的就是B+树结构</li>
+<li>MySQL 数据库的索引用的就是 B+树结构</li>
 </ul>
-<h2 id="b树相比于b-树的优点"><a class="markdownIt-Anchor" href="#b树相比于b-树的优点"></a> B+树相比于B-树的优点</h2>
+<h2 id="总结b树相比于-b-树的优点"><a class="markdownIt-Anchor" href="#总结b树相比于-b-树的优点"></a> 总结：B+树相比于 B-树的优点</h2>
 <ol>
-<li>**IO次数少：**单一节点存储更多的元素，使得查询的IO次数更少</li>
-<li>**查询性能稳定：**所有查询都要查找到叶子节点，查询性能稳定</li>
-<li>**范围查询简便：**所有叶子节点形成有序链表，便于范围查询</li>
+<li><strong>IO 次数少</strong>：单一节点存储更多的元素，使得查询的 IO 次数更少</li>
+<li><strong>查询性能稳定</strong>：所有查询都要查找到叶子节点，查询性能稳定</li>
+<li><strong>范围查询简便</strong>：所有叶子节点形成有序链表，便于范围查询</li>
 </ol>
 <h2 id="索引"><a class="markdownIt-Anchor" href="#索引"></a> 索引</h2>
 <h3 id="1-数据库索引为什么要使用树结构存储"><a class="markdownIt-Anchor" href="#1-数据库索引为什么要使用树结构存储"></a> 1. 数据库索引为什么要使用树结构存储？</h3>
 <p>输的查询效率高，且有序？？（既然这样，为何不使用二叉查找树来实现？？）</p>
-<p><strong>在选择数据库索引的数据结构时，我们不得不考虑一个很现实的问题：磁盘IO</strong><span id="reason"></span></p>
+<p><strong>在选择数据库索引的数据结构时，我们不得不考虑一个很现实的问题：磁盘 IO</strong><span id="reason"></span></p>
 <ul>
-<li>数据库的索引是存储在磁盘上的，当索引比较大的时候，可能有几个G甚至更多</li>
+<li>数据库的索引是存储在磁盘上的，当索引比较大的时候，可能有几个 G 甚至更多</li>
 <li>我们在利用索引查询时，不可能把整个索引都加载到内存</li>
 <li>我们可以做的是逐一加载每一个磁盘页，这里的磁盘页对应着索引树的节点。每一个磁盘页对应着一个索引树的节点</li>
 </ul>
 <p><img alt="640.webp" class="post-img b-lazy" href="http://ww1.sinaimg.cn/large/005HBDIygy1gdlqpt5p1tj30hs0e6mx0.jpg" data-src="http://ww1.sinaimg.cn/large/005HBDIygy1gdlqpt5p1tj30hs0e6mx0.jpg"></p>
-<p>在我们每次和树中的结点比较时，都需要进行一次IO操作，将结点内的数据加载到内存中进行比较</p>
-<p>IO和在内存中比较这两个操作相比，在内存中比较的时间可以忽略不计</p>
-<p>所以为了减少磁盘IO的次数，我们需要把原本“瘦高”的树结构变得“矮胖”</p>
-<p>这也是不选择二叉查找树，而选择B-的原因</p>
+<p>在我们每次和树中的结点比较时，都需要进行一次 IO 操作，将结点内的数据加载到内存中进行比较</p>
+<p>IO 和在内存中比较这两个操作相比，在内存中比较的时间可以忽略不计</p>
+<p>所以为了减少磁盘 IO 的次数，我们需要把原本“瘦高”的树结构变得“矮胖”</p>
+<p>这也是不选择二叉查找树，而选择 B-的原因</p>
 
                 </div>
             </section>
@@ -262,8 +261,8 @@
         
         <span class="prev-next-post">•</span>
         
-        <a class="next-post" title="Lambda" href="/2020/04/07/Lambda/">
-            Lambda →
+        <a class="next-post" title="Java8 新特性 Lambda" href="/2020/04/07/Lambda/">
+            Java8 新特性 Lambda →
         </a>
         
     </nav>
@@ -285,7 +284,7 @@
         </a>
     </div>
     <div class="toc-main">
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#头疼的b树以及强大的作用"><span class="toc-text"> 头疼的B树以及强大的作用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#b-树"><span class="toc-text"> B-树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#b树"><span class="toc-text"> B+树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#b树相比于b-树的优点"><span class="toc-text"> B+树相比于B-树的优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引"><span class="toc-text"> 索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数据库索引为什么要使用树结构存储"><span class="toc-text"> 1. 数据库索引为什么要使用树结构存储？</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#b-树"><span class="toc-text"> B-树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一个-m-阶的-b-树的特征"><span class="toc-text"> 一个 m 阶的 B 树的特征</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以一个-3-阶-b-树为例"><span class="toc-text"> 以一个 3 阶 B-树为例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#b-树的作用"><span class="toc-text"> B-树的作用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#b树"><span class="toc-text"> B+树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在-b-树的基础上一个-m-阶的-b树有新的特征"><span class="toc-text"> 在 B-树的基础上，一个 m 阶的 B+树有新的特征：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#卫星数据索引元素所指向的数据记录"><span class="toc-text"> 卫星数据：索引元素所指向的数据记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#优点主要体现在查询性能上"><span class="toc-text"> 优点：主要体现在查询性能上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#作用"><span class="toc-text"> 作用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结b树相比于-b-树的优点"><span class="toc-text"> 总结：B+树相比于 B-树的优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引"><span class="toc-text"> 索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-数据库索引为什么要使用树结构存储"><span class="toc-text"> 1. 数据库索引为什么要使用树结构存储？</span></a></li></ol></li></ol>
     </div>
 </div>
 
@@ -323,7 +322,7 @@
       
       
       <li>
-        <a href="/2020/04/07/Lambda/">Lambda</a>
+        <a href="/2020/04/07/Lambda/">Java8 新特性 Lambda</a>
       </li>
       
       
